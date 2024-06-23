@@ -1,0 +1,18 @@
+---
+- name: Gather OS Information and Kernel Version
+  hosts: localhost
+  gather_facts: true
+
+  tasks:
+    - name: Print OS Information
+      ansible.builtin.debug:
+        msg: 
+          - "Host: {{ inventory_hostname }}"
+          - "OS: {{ ansible_facts['os_family'] }}"
+          - "Distribution: {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+          - "Kernel: {{ ansible_facts['kernel'] }}"
+          - "Kernel Version: {{ ansible_facts['kernel_version'] }}"
+
+    - name: Print Kernel Version
+      ansible.builtin.debug:
+        msg: "Python Version: {{ ansible_facts['python_version'] }}"
