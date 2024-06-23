@@ -10,7 +10,7 @@ pipeline {
         stage('Execute Ansibe') {
             agent any
             steps {
-                sh 'ansible-playbook gather_os_info.yaml'
+                sh 'ansible-playbook -vvvvv gather_os_info.yaml'
             }
         }
     }
